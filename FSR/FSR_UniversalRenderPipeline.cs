@@ -17,18 +17,24 @@ using System;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
+#if UNIVERSAL_PIPELINE_CORE_INCLUDED 
 using UnityEngine.Rendering.Universal;
+#endif
+
 #if !UNITY_2019_2_OR_NEWER
 using UnityEngine.XR;
 #endif
 
 namespace NKLI
 {
+#if UNIVERSAL_PIPELINE_CORE_INCLUDED 
+
     /// <summary>
     /// Render pipeline feature
     /// </summary>
     public class FSR_UniversalRenderPipeline : ScriptableRendererFeature
     {
+
         // Shader
         private static ComputeShader compute_FSR;
 
@@ -258,5 +264,9 @@ namespace NKLI
             fsrPass.Setup(RT_FSR_RenderTarget, dest);
             renderer.EnqueuePass(fsrPass);
         }
+
+
     }
+#endif
+    
 }

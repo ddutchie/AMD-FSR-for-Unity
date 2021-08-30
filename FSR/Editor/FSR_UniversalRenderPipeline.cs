@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace NKLI
 {
-#if UNITY_EDITOR
+#if UNITY_EDITOR && UNIVERSAL_PIPELINE_CORE_INCLUDED 
     [CustomEditor(typeof(FSR_UniversalRenderPipeline))]
     public class FSR_URP_Editor : Editor
     {
